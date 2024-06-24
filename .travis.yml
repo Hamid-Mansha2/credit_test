@@ -2,15 +2,16 @@ language: generic
 
 arch:
   - arm64
-  
+  - amd64
+
 os: linux
 dist: focal
 
 cache:
   directories:
     - $HOME/.cache
+
 script:
   - echo "Starting the test"
   - for i in {1..1000}; do echo "Test $i"; done
   - echo "Test completed"
-
