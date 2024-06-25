@@ -1,9 +1,13 @@
+language: c
+dist: focal
+virt: vm
+group: edge
 arch:
-  - arm64
+    - arm64-graviton2
+    - amd64
 
-jobs:
-  include:
-    - stage: test
-      script:
-        - echo "Running on AWS Graviton2 architecture"
-        - uname -a 
+script:
+    - make test
+
+after_success:
+    - ./test
