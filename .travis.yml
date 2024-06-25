@@ -1,17 +1,8 @@
-language: generic
-
 arch:
   - arm64
-  - amd64
+virt: lxd
 
-os: linux
-dist: focal
-
-cache:
-  directories:
-    - $HOME/.cache
-
-script:
-  - echo "Starting the test"
-  - for i in {1..1000}; do echo "Test $i"; done
-  - echo "Test completed"
+jobs:
+  include:
+    - stage: build
+      script: echo "Running on AWS Graviton2 architecture" && ./build-script.sh
