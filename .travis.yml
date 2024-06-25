@@ -1,8 +1,11 @@
 arch:
   - arm64
-virt: lxd
 
 jobs:
   include:
     - stage: build
-      script: echo "Running on AWS Graviton2 architecture" && ./build-script.sh
+      script:
+        - echo "Running on AWS Graviton2 architecture"
+        - ls -la # List files in the current directory for debugging
+        - chmod +x ./build-script.sh # Ensure the script is executable
+        - ./build-script.sh
