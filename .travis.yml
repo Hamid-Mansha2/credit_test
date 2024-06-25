@@ -3,6 +3,7 @@ arch:
 
 jobs:
   include:
-    - stage: build
+    - stage: test
       script:
         - echo "Running on AWS Graviton2 architecture"
+        - uname -a  # Print system information to verify architecture
